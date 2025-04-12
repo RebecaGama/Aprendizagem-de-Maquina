@@ -14,7 +14,7 @@ O foco do trabalho é a aplicação de técnicas de **Aprendizagem de Máquina**
 
 </div>
 
----
+##
 
 ### 📂 Projetos
 
