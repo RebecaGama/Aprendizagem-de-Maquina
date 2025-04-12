@@ -8,9 +8,9 @@ Este repositório tem como objetivo armazenar as atividades desenvolvidas na dis
 
 O foco do trabalho é a aplicação de técnicas de **Aprendizagem de Máquina**, organizadas nas seguintes categorias:
 
-- 🔍 Classificação  
-- 📈 Regressão (Séries Temporais)  
-- 🔗 Agrupamento  
+- Classificação  
+- Regressão (Séries Temporais)  
+- Agrupamento  
 
 </div>
 
