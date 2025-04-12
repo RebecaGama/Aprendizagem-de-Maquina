@@ -24,7 +24,7 @@ O foco do trabalho é a aplicação de técnicas de **Aprendizagem de Máquina**
 
 | Projeto | Descrição     |
 |---------|---------------|
-| [1°](https://github.com/RebecaGama/Aprendizagem-de-Maquina/tree/main/Classificacao) | Classificação |
+| [1°](https://github.com/RebecaGama/Aprendizagem-de-Maquina/tree/main/Classifica%C3%A7%C3%A3o) | Classificação |
 | [2°](https://github.com/RebecaGama/Aprendizagem-de-Maquina/tree/main/Regressao)     | Regressão     |
 | [3°](https://github.com/RebecaGama/Aprendizagem-de-Maquina/tree/main/Agrupamento)   | Agrupamento   |
 
