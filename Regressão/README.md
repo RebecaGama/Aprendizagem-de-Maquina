@@ -37,7 +37,31 @@ Prever o número de **visitantes diários** com base em variáveis históricas c
 
 ## 🧹 Pré-processamento dos Dados
 
+As etapas de tratamento incluíram:
 
+- **Carregamento da Base de Dados**  
+   A base foi importada diretamente de um arquivo `.csv` disponível no Kaggle, utilizando a biblioteca `pandas`.
+
+- **Padronização do Nome da Coluna de Data**  
+   A coluna original `'Date'` foi renomeada para `'date'` por questões de padronização.
+
+- **Conversão de Datas**  
+   A coluna `'date'` foi convertida de string para o tipo `datetime`, permitindo operações de ordenação, frequência e indexação temporal.
+
+- **Definição do Índice Temporal**  
+   A coluna `'date'` foi definida como índice do DataFrame, garantindo que o pandas reconheça a estrutura de série temporal.
+
+- **Ordenação Cronológica**  
+   Os dados foram ordenados pela data para evitar inconsistências durante a análise temporal.
+
+- **Conversão de Dados Numéricos**  
+   Algumas colunas como `'Unique.Visits'`, `'Page.Loads'`, `'Returning.Visits'` etc. estavam em formato de texto com vírgulas (ex: `"1,234"`).  
+   Foi necessário remover as vírgulas e converter essas colunas para o tipo `int`.
+
+- **Visualização Exploratória**  
+   Após o tratamento, um gráfico foi gerado para visualizar a evolução dos visitantes únicos ao longo do tempo, permitindo observar tendências e padrões visuais.
+
+</br>
 
 ##
 
