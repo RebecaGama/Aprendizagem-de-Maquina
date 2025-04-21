@@ -15,6 +15,12 @@ A ideia central é construir um classificador capaz de prever se uma resenha é 
 
 - **Fonte:** IMDb Movie Reviews Dataset  
   - Disponível em: [Kaggle](https://www.kaggle.com/)
+- **Idioma:** Inglês
+  - Todas as resenhas estão escritas em inglês.
+- **Tamanho:**
+  - 50.000 registros (resenhas de filmes)
+  - Divididos igualmente entre 25.000 resenhas positivas e 25.000 resenhas negativas
+  - Arquivo .csv com cerca de 80 MB
 - **Descrição:**
   - `review`: Texto da resenha do filme.
   - `sentiment`: Rótulo da resenha:
