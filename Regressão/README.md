@@ -20,7 +20,8 @@ A proposta é identificar padrões históricos no tráfego do site e estimar com
   - `visitors`: Número de visitantes no site.
   - `pageviews`: Número de visualizações de páginas.
   - `bounce_rate`: Taxa de rejeição (porcentagem de visitantes que saíram sem interagir com a página).
-
+- **Idioma:** Inglês
+- **Tamanho:** 2.167 registros diários (de 14/09/2014 a 19/08/2020)
 ##
 
 ## 🎯 Objetivo
