@@ -15,13 +15,16 @@ A proposta é identificar padrões históricos no tráfego do site e estimar com
 
 - **Fonte:** Daily Website Visitors  
   - Disponível em: [Kaggle](https://www.kaggle.com/datasets/bobnau/daily-website-visitors)
+- **Idioma:** Inglês
+  - Todas as resenhas estão escritas em inglês.
+- **Tamanho:**
+  - 2.167 registros diários (de 14/09/2014 a 19/08/2020)
+  - Aproximadamente 5 anos de dados diários
 - **Descrição:**
   - `date`: Data da observação.
   - `visitors`: Número de visitantes no site.
   - `pageviews`: Número de visualizações de páginas.
   - `bounce_rate`: Taxa de rejeição (porcentagem de visitantes que saíram sem interagir com a página).
-- **Idioma:** Inglês
-- **Tamanho:** 2.167 registros diários (de 14/09/2014 a 19/08/2020)
 ##
 
 ## 🎯 Objetivo
