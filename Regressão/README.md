@@ -39,48 +39,77 @@ Prever o número de **visitantes diários** com base em variáveis históricas c
 
 As etapas de tratamento incluíram:
 
-- **Carregamento da Base de Dados**  
-   A base foi importada diretamente de um arquivo `.csv` disponível no Kaggle, utilizando a biblioteca `pandas`.
+* **Carregamento dos dados:**
+  Dataset com visitas diárias a um site, contendo colunas como `Page.Loads`, `Unique.Visits` e `Date`.
 
-- **Padronização do Nome da Coluna de Data**  
-   A coluna original `'Date'` foi renomeada para `'date'` por questões de padronização.
+* **Renomeação de colunas**:
+  O Prophet exige colunas com nomes fixos:
+  `Date → ds` (datas), `Unique.Visits → y` (valor a ser previsto)
 
-- **Conversão de Datas**  
-   A coluna `'date'` foi convertida de string para o tipo `datetime`, permitindo operações de ordenação, frequência e indexação temporal.
+* **Conversão de data**:
+  A coluna `ds` foi convertida para o formato `datetime` e renomeada para `ds`, enquanto a variável alvo (`Page.Loads`) foi renomeada para `y`
 
-- **Definição do Índice Temporal**  
-   A coluna `'date'` foi definida como índice do DataFrame, garantindo que o pandas reconheça a estrutura de série temporal.
+* **Limpeza de valores:**
+  Valores numéricos com vírgulas foram convertidos corretamente para inteiros.
+  
+* **Conversão de números**:
+  Os valores numéricos foram tratados para remoção de vírgulas e convertidos para o tipo `int`
 
-- **Ordenação Cronológica**  
-   Os dados foram ordenados pela data para evitar inconsistências durante a análise temporal.
-
-- **Conversão de Dados Numéricos**  
-   Algumas colunas como `'Unique.Visits'`, `'Page.Loads'`, `'Returning.Visits'` etc. estavam em formato de texto com vírgulas (ex: `"1,234"`).  
-   Foi necessário remover as vírgulas e converter essas colunas para o tipo `int`.
-
-- **Visualização Exploratória**  
-   Após o tratamento, um gráfico foi gerado para visualizar a evolução dos visitantes únicos ao longo do tempo, permitindo observar tendências e padrões visuais.
-
-</br>
-
+* **Divisão treino/teste**:
+  Os últimos 30 dias foram reservados para teste, o restante para treino
+  
 ##
 
-## ⚙️ Algoritmos Utilizados
+## ⚙️ Modelo Utilizado
 
+Foi utilizado o Prophet, um modelo desenvolvido pelo Facebook para lidar com séries temporais que apresentam tendência e sazonalidade. Foi escolhido pela sua facilidade de uso e capacidade de gerar boas previsões com dados temporais.
 
+* Modelo treinado com dados históricos de visitas
+* Previsão para os **30 dias seguintes**
+* Frequência definida como **diária (`'D'`)**
 
 ##
 
 ## 📊 Resultados
 
+### 🔹 Previsão Gerada
 
+Foi gerada a previsão de visitas únicas para os próximos 30 dias e comparada com os valores reais do período de teste.
+
+![1](https://github.com/user-attachments/assets/009346fd-5482-44b0-a40f-c5e7ed42ac11)
+
+### 🔹 Componentes do Modelo
+
+![2](https://github.com/user-attachments/assets/ff52c083-5d4d-45ba-9239-66fe05c0eec8)
+
+*O modelo capturou:*
+
+* **Tendência crescente** ao longo dos anos.
+* **Picos semanais** entre segunda e quarta-feira.
+* **Ciclos anuais**, com alta entre março e maio, e novembro.
+
+### 🔹 Comparação Real vs. Previsto
+
+![3](https://github.com/user-attachments/assets/ca241829-de1a-4caa-83d2-00643471dc95)
 
 ##
 
-## 🔧 Ajustes de Parâmetros
+## 📏 Avaliação do Modelo
 
+A comparação entre os valores reais e previstos nos últimos 30 dias foi avaliada com métricas de erro:
 
+| Métrica                                  | Valor |
+| ---------------------------------------- | ------- |
+| **MAE** (erro absoluto médio)            | 269.996 |
+| **MSE** (erro quadrático médio)          | 149.364 |
+| **RMSE** (raiz do erro quadrático médio) | 386.477 |
 
+> Valores mais baixos indicam melhor desempenho do modelo.
 ##
 
 ## ✅ Conclusão
+
+* O modelo **capturou bem os padrões sazonais e a tendência geral** de visitas ao site.
+* Pequenos desvios ocorrem em pontos de picos muito acentuados, o que é esperado.
+* As métricas obtidas indicam **bom desempenho preditivo**, principalmente para uso operacional de curto prazo.
+
