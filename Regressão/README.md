@@ -107,6 +107,51 @@ A comparação entre os valores reais e previstos nos últimos 30 dias foi avali
 > Valores mais baixos indicam melhor desempenho do modelo.
 ##
 
+## 🔄 Modelagem Alternativa com Skforecast
+
+Antes da adoção do Prophet, foi testada uma abordagem baseada em regressão com aprendizado de máquina utilizando o pacote `skforecast`, que permite aplicar modelos como **Random Forest** para séries temporais.
+
+### 📌 Etapas Realizadas
+
+#### 1. **Tratamento dos Dados**
+
+* Colunas numéricas como `Page.Loads` e `Unique.Visits` vieram como texto com vírgulas, sendo convertidas para `int` após a remoção desses símbolos.
+* A coluna `Date` foi convertida para `datetime` e configurada como índice com frequência diária (`'D'`), preenchendo possíveis valores ausentes com zero.
+
+#### 2. **Divisão Treino/Teste**
+
+* O conjunto foi dividido reservando os **últimos 100 dias** para teste e o restante para treino.
+
+#### 3. **Criação e Treinamento do Modelo**
+
+* Utilizado o `ForecasterRecursive` com:
+
+  * **Regressor**: `RandomForestRegressor` com 100 árvores e profundidade máxima de 10.
+  * **Lags**: 7 (últimos 7 dias usados como entrada).
+  * **RollingFeatures**: média móvel de 7 dias incluída como variável auxiliar.
+
+#### 4. **Previsão**
+
+* A previsão foi realizada para os próximos 100 dias.
+
+#### 5. **Visualização**
+
+* O gráfico abaixo mostra o conjunto de treino (azul), teste (vermelho) e a previsão (verde):
+
+![01](https://github.com/user-attachments/assets/28128ff8-e6e3-4ad6-b680-837d9271b130)
+
+##
+
+### ⚠️ Por que o Skforecast não foi mantido?
+
+Apesar de ser uma abordagem funcional, o modelo apresentou limitações:
+
+* **Não capturou bem** os padrões de **sazonalidade** e **tendência** da série.
+* As previsões ficaram **mais suavizadas**, não conseguindo acompanhar os **picos** e **vales** de forma precisa.
+* Por esse motivo, optou-se por substituir o modelo pelo **Prophet**, que demonstrou melhor desempenho em séries temporais com padrões sazonais e tendências não lineares.
+
+##
+
 ## ✅ Conclusão
 
 * O modelo **capturou bem os padrões sazonais e a tendência geral** de visitas ao site.
