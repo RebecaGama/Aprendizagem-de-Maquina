@@ -74,7 +74,7 @@ Foi utilizado o Prophet, um modelo desenvolvido pelo Facebook para lidar com sé
 
 ### 🔹 Previsão Gerada
 
-Foi gerada a previsão de visitas únicas para os próximos 30 dias e comparada com os valores reais do período de teste.
+O modelo gerou previsões de visitas únicas para os 30 dias seguintes, que foram comparadas com os valores reais do período de teste.
 
 ![1](https://github.com/user-attachments/assets/009346fd-5482-44b0-a40f-c5e7ed42ac11)
 
@@ -82,7 +82,7 @@ Foi gerada a previsão de visitas únicas para os próximos 30 dias e comparada 
 
 ![2](https://github.com/user-attachments/assets/ff52c083-5d4d-45ba-9239-66fe05c0eec8)
 
-*O modelo capturou:*
+*O modelo identificou:*
 
 * **Tendência crescente** ao longo dos anos.
 * **Picos semanais** entre segunda e quarta-feira.
@@ -96,7 +96,7 @@ Foi gerada a previsão de visitas únicas para os próximos 30 dias e comparada 
 
 ## 📏 Avaliação do Modelo
 
-A comparação entre os valores reais e previstos nos últimos 30 dias foi avaliada com métricas de erro:
+A qualidade da previsão foi avaliada com métricas de erro nos últimos 30 dias:
 
 | Métrica                                  | Valor |
 | ---------------------------------------- | ------- |
@@ -116,36 +116,35 @@ A comparação entre os valores reais e previstos nos últimos 30 dias foi avali
 
 ##
 
-## 🔄 Modelagem Alternativa com Skforecast
+## 🔄 Abordagem Inicial com Skforecast
 
-Antes da adoção do Prophet, foi testada uma abordagem baseada em regressão com aprendizado de máquina utilizando o pacote `skforecast`, que permite aplicar modelos como **Random Forest** para séries temporais.
+Antes do Prophet, foi testado o uso da biblioteca Skforecast, que permite aplicar algoritmos de machine learning tradicionais em séries temporais.
 
 ### 📌 Etapas Realizadas
 
 #### 1. **Tratamento dos Dados**
 
-* Colunas numéricas como `Page.Loads` e `Unique.Visits` vieram como texto com vírgulas, sendo convertidas para `int` após a remoção desses símbolos.
-* A coluna `Date` foi convertida para `datetime` e configurada como índice com frequência diária (`'D'`), preenchendo possíveis valores ausentes com zero.
+* Colunas numéricas vieram como texto (com vírgulas).
+* As vírgulas foram removidas e os valores convertidos para inteiros.
+* A coluna Date foi convertida para o tipo datetime e configurada como índice com frequência diária. Valores ausentes foram preenchidos com zero.
 
 #### 2. **Divisão Treino/Teste**
 
-* O conjunto foi dividido reservando os **últimos 100 dias** para teste e o restante para treino.
+* Os últimos 100 dias foram reservados para teste.
+* O restante dos dados foi usado para treinamento.
 
 #### 3. **Criação e Treinamento do Modelo**
 
-* Utilizado o `ForecasterRecursive` com:
-
-  * **Regressor**: `RandomForestRegressor` com 100 árvores e profundidade máxima de 10.
-  * **Lags**: 7 (últimos 7 dias usados como entrada).
-  * **RollingFeatures**: média móvel de 7 dias incluída como variável auxiliar.
+* Modelo recursivo ForecasterRecursive:
+  * Regressor: RandomForestRegressor com 100 árvores e profundidade máxima de 10
+  * Lags: 7 dias (últimas 7 observações como entrada)
+  * RollingFeatures: média móvel de 7 dias incluída como variável adicional
 
 #### 4. **Previsão**
 
 * A previsão foi realizada para os próximos 100 dias.
 
 #### 5. **Visualização**
-
-* O gráfico abaixo mostra o conjunto de treino (azul), teste (vermelho) e a previsão (verde):
 
 ![01](https://github.com/user-attachments/assets/28128ff8-e6e3-4ad6-b680-837d9271b130)
 
@@ -155,6 +154,6 @@ Antes da adoção do Prophet, foi testada uma abordagem baseada em regressão co
 
 Apesar de ser uma abordagem funcional, o modelo apresentou limitações:
 
-* **Não capturou bem** os padrões de **sazonalidade** e **tendência** da série.
-* As previsões ficaram **mais suavizadas**, não conseguindo acompanhar os **picos** e **vales** de forma precisa.
-* Por esse motivo, optou-se por substituir o modelo pelo **Prophet**, que demonstrou melhor desempenho em séries temporais com padrões sazonais e tendências não lineares.
+* Não capturou adequadamente padrões sazonais e tendências da série
+* Produziu previsões excessivamente suavizadas
+* Falhou em representar com precisão os picos e vales do histórico
