@@ -105,6 +105,15 @@ A comparação entre os valores reais e previstos nos últimos 30 dias foi avali
 | **RMSE** (raiz do erro quadrático médio) | 386.477 |
 
 > Valores mais baixos indicam melhor desempenho do modelo.
+
+##
+
+## ✅ Conclusão
+
+* O modelo **capturou bem os padrões sazonais e a tendência geral** de visitas ao site.
+* Pequenos desvios ocorrem em pontos de picos muito acentuados, o que é esperado.
+* As métricas obtidas indicam **bom desempenho preditivo**, principalmente para uso operacional de curto prazo.
+
 ##
 
 ## 🔄 Modelagem Alternativa com Skforecast
@@ -149,12 +158,3 @@ Apesar de ser uma abordagem funcional, o modelo apresentou limitações:
 * **Não capturou bem** os padrões de **sazonalidade** e **tendência** da série.
 * As previsões ficaram **mais suavizadas**, não conseguindo acompanhar os **picos** e **vales** de forma precisa.
 * Por esse motivo, optou-se por substituir o modelo pelo **Prophet**, que demonstrou melhor desempenho em séries temporais com padrões sazonais e tendências não lineares.
-
-##
-
-## ✅ Conclusão
-
-* O modelo **capturou bem os padrões sazonais e a tendência geral** de visitas ao site.
-* Pequenos desvios ocorrem em pontos de picos muito acentuados, o que é esperado.
-* As métricas obtidas indicam **bom desempenho preditivo**, principalmente para uso operacional de curto prazo.
-
