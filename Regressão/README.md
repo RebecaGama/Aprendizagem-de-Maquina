@@ -31,7 +31,7 @@ A proposta é identificar padrões históricos no tráfego do site e estimar com
 
 Prever o número de **visitantes diários** com base em variáveis históricas como visualizações de página e taxa de rejeição, utilizando algoritmos de regressão e análise de séries temporais.
 
-> 🛠 Projeto em desenvolvimento.
+> ✅ Projeto finalizado.
 
 ##
 
