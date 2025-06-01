@@ -68,6 +68,16 @@ Aplicado `StandardScaler` para padronizar as variáveis, garantindo que todas te
 
 ##
 
+## 🔧 Ajustes de Parâmetros
+
+- **Número de clusters:**
+Testado com 3 clusters com base em experimentação inicial e testes de Elbow Method (não incluído aqui, mas recomendado para análises futuras).
+
+- **Escalonamento:**
+PCA e K-means foram aplicados aos dados escalados para resultados mais robustos.
+
+##
+
 ## 📊 Resultados
 
 **Clusters formados**
@@ -89,15 +99,6 @@ O algoritmo K-means identificou 3 grupos de clientes com padrões de consumo dis
 
 ##
 
-## 🔧 Ajustes de Parâmetros
-
-- **Número de clusters:**
-Testado com 3 clusters com base em experimentação inicial e testes de Elbow Method (não incluído aqui, mas recomendado para análises futuras).
-
-- **Escalonamento:**
-PCA e K-means foram aplicados aos dados escalados para resultados mais robustos.
-
-##
 
 ## ✅ Conclusão
 
