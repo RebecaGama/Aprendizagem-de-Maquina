@@ -33,7 +33,7 @@
 
 Aplicar o algoritmo K-means para identificar agrupamentos naturais entre os clientes, com base em suas características de consumo. O objetivo é descobrir padrões de comportamento que possam ser utilizados em estratégias comerciais e de marketing.
 
-> 🛠 Projeto em desenvolvimento.
+> ✅ Projeto finalizado.
 
 ##
 
@@ -71,7 +71,7 @@ Aplicado `StandardScaler` para padronizar as variáveis, garantindo que todas te
 ## 🔧 Ajustes de Parâmetros
 
 - **Número de clusters:**
-Testado com 3 clusters com base em experimentação inicial e testes de Elbow Method (não incluído aqui, mas recomendado para análises futuras).
+Testado com 5 clusters com base em experimentação inicial e testes de Elbow Method.
 
 - **Escalonamento:**
 PCA e K-means foram aplicados aos dados escalados para resultados mais robustos.
@@ -81,21 +81,24 @@ PCA e K-means foram aplicados aos dados escalados para resultados mais robustos.
 ## 📊 Resultados
 
 **Clusters formados**
-O algoritmo K-means identificou 3 grupos de clientes com padrões de consumo distintos.
+O método Elbow Method identificou 5 grupos de clientes com padrões de consumo distintos.
+
+### 📌 **Método do Cotovelo (Elbow Method) com KneeLocator:**
+
+![KneeLocator](https://github.com/user-attachments/assets/c69d6908-6f78-4c8d-8839-8c206bbc03dd)
 
 ### 📌 **PCA 2D:**
   Gráfico de dispersão com cores distintas para cada cluster.
   Permitiu visualizar a separação entre grupos e a distribuição dos dados.
-  
-  ![Gráfico 2D](https://github.com/user-attachments/assets/b9aaa247-d3c5-4ce9-ac70-ec6f8ed321a3)
+
+![Gráfico 2D](https://github.com/user-attachments/assets/ae18168c-e463-437f-aff3-51113e52e508)
 
 ### 📌 **PCA 3D:**
   Gráfico de dispersão 3D, possibilitando uma análise mais rica da distribuição dos clusters.
   Clientes agrupados de acordo com similaridade de consumo.
   Pontos isolados indicam perfis de clientes mais atípicos.
   
-![Gráfico 3D](https://github.com/user-attachments/assets/b94dad49-36e3-4a94-bef6-4c79649375d5)
-
+![Gráfico 3D](https://github.com/user-attachments/assets/328bd061-2266-4b11-8f59-66b1749e36e7)
 
 ##
 
