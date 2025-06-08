@@ -58,7 +58,7 @@ Aplicado `StandardScaler` para padronizar as variáveis, garantindo que todas te
 ## ⚙️ Algoritmos Utilizados
 
 * **K-Means:**
-  Aplicado para agrupar os clientes em 3 clusters. Cada cliente foi atribuído a um cluster com base na similaridade de padrões de consumo.
+  Aplicado para agrupar os clientes em 5 clusters. Cada cliente foi atribuído a um cluster com base na similaridade de padrões de consumo.
 
 * **PCA (Análise de Componentes Principais):**
   Redução de dimensionalidade:
